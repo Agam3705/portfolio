@@ -1,0 +1,53 @@
+Kumari Kriti Singh
+LinkedIn: linkedin/kritisingh7488                                                                                      Email: kumarikritisingh5@gmail.com
+  GitHub:  github.com/kritisingh7488                                                                                             Mobile: +91-7488223232
+SKILLS
+•	Languages:	         C/C++, JavaScript, PHP, Java
+•	Frameworks:	         HTML and CSS, Tailwind CSS, NodeJS, ReactJS
+•	Tools/Platforms:	         MySQL, Git, GitHub
+•	Core CS Fundamentals:  DSA, OOPs, OS
+•	Soft Skills:	        Problem-Solving, Team Work, Leadership, Adaptability
+
+PROJECTS
+•	Paint Application | GitHub          	                                                                                                    Jun’ 25 - Jul’ 25
+•	Developed a desktop-based paint tool using Java and Swing with smooth and responsive drawing capabilities.
+•	Added essential features like pencil, shapes, color picker, fill, and eraser to support flexible digital drawing.
+•	Designed a user-friendly interface that allows easy creation, editing, and clearing of artwork.
+•	Included adjustable brush-size controls and simplified user interactions to improve overall usability and workflow.
+Tech stack: Java, Swing, GUI Development, Desktop Application
+
+•	Knowledge management Portal | GitHub		                                                                         Jan’ 25 - Apr’ 25
+•	Built a structured knowledge portal with a clean and organized interface using HTML and Tailwind CSS.
+•	Implemented backend functionality using PHP and Node.js to handle requests and process data efficiently.
+•	Used MySQL for reliable data storage to ensure smooth management of information.
+•	Integrated JavaScript and jQuery to deliver dynamic interactions and improved content navigation.
+      Tech stack: HTML, Tailwind CSS, PHP, JavaScript, Node.js, jQuery, MySQL, Web Platform
+•	Energy Efficient CPU Scheduling Algorithm | GitHub                                                                    Jan’ 25 - Mar’ 25                  
+•	Created a web tool to simulate CPU scheduling algorithms with an energy-efficient approach.
+•	Enabled users to test multiple algorithms and observe their performance in real time.
+•	Added clear visual elements like Gantt charts to simplify understanding of scheduling behavior.
+•	Crafted the scheduling engine and UI using JavaScript and PHP for accurate simulations.
+Tech stack: HTML, Tailwind CSS, JavaScript, PHP, Web Application Simulation
+                       
+TRAINING
+Fundamentals of Data Structures – LPU                                                                                           Jun’ 25 - Jul’ 25
+•	Completed a skill development course on core data structures arrays, linked lists, stacks, queues, trees, and graphs using Java, and gained stronger algorithmic and problem-solving skills.
+•	Applied these concepts through hands-on Java code exercises and mini-projects, and improved the ability to write optimized, structured, and efficient programs.       
+Tech stack: Java, Data Structures, Algorithms, Problem Solving             
+
+CERTIFICATES
+•	Cloud Computing | NPTEL | Link	                                                                                                                  Apr’ 25                                                       
+•	Computer Communications | Coursera | Link                                                                                                     Nov’ 24
+•	Social Entrepreneurship | Sanjivani Shakti Sewa Samiti | Link                                                                            Jul’ 24  
+                                                                        
+Achievements
+•	Earned a 5-star C++ rating on HackerRank for strong problem-solving performance.                                      Oct’ 25
+•	Secured 2nd position among 100+ participants in the Achievers Hunt competition at LPU                              May’ 24    
+                                   
+EDUCATION
+Lovely Professional University                                                                                                           Phagwara, Punjab
+  Bachelor of Technology - Computer Science and Engineering; CGPA: 7.55                              Aug’ 23 - Present
+  Saraswati Shishu Vidya Mandir	             Dhurwa, Ranchi
+  Intermediate; Percentage: 89%                                                                                                        Apr’ 21-Jun’ 22
+  Saraswati Shishu Vidya Mandir	          Dhurwa, Ranchi
+  Matriculation; Percentage: 85%                                                                                                        Apr’ 19-Jun’ 20
