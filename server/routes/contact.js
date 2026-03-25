@@ -144,6 +144,18 @@ router.post('/', async (req, res) => {
   });
 });
 
+// GET /api/contact/config-check (Hidden debug route)
+router.get('/config-check', (req, res) => {
+  res.json({
+    emailUserSet: !!process.env.EMAIL_USER,
+    emailPassSet: !!process.env.EMAIL_APP_PASS,
+    emailToSet: !!process.env.EMAIL_TO,
+    nodeEnv: process.env.NODE_ENV,
+    mongoReady: mongoose.connection.readyState,
+    currentTime: new Date().toISOString()
+  });
+});
+
 // GET /api/contact (dev utility)
 router.get('/', (req, res) => res.json({ count: inbox.length, messages: inbox }));
 
