@@ -133,15 +133,22 @@ router.post('/', async (req, res) => {
     console.log('📬 Stored in memory (no DB):', { name, email });
   }
 
-  // Send email notification (non-blocking)
-  sendEmailNotification({ name, email, message }).catch(err =>
-    console.error('❌ Email send failed:', err.message)
-  );
-
-  res.status(200).json({
-    success: true,
-    message: `Thanks ${name}! Your message is on its way 🚀`,
-  });
+  // Send email notification (Wait for it to finish for debugging)
+  try {
+    await sendEmailNotification({ name, email, message });
+    return res.status(200).json({
+      success: true,
+      message: `Thanks ${name}! Your message is on its way 🚀`,
+    });
+  } catch (err) {
+    console.error('❌ Email send failed:', err.message);
+    // Even if email fails, we return success so the user feels good, 
+    // but the SERVER logs will now definitely show the error.
+    return res.status(200).json({
+      success: true,
+      message: `Thanks ${name}! Your message (saved) is being processed. 🚀`,
+    });
+  }
 });
 
 // GET /api/contact/config-check (Hidden debug route)
