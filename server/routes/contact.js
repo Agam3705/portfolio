@@ -10,23 +10,19 @@ const inbox = [];
 const getTransporter = () => {
   const user = process.env.EMAIL_USER;
   const pass = process.env.EMAIL_APP_PASS;
-  if (!user) {
-    console.warn('⚠️  EMAIL_USER is not defined in env.');
+  const mask = (s) => s ? s.slice(0, 3) + '***' + s.slice(-3) : 'undefined';
+  console.log(`🔍 [DEBUG] EMAIL_USER: ${mask(user)}, EMAIL_APP_PASS: (hidden), EMAIL_TO: ${mask(process.env.EMAIL_TO)}`);
+
+  if (!user || !pass || pass === 'your_gmail_app_password_here') {
     return null;
   }
-  if (!pass || pass === 'your_gmail_app_password_here') {
-    console.warn('⚠️  EMAIL_APP_PASS is not defined or is default placeholder.');
-    return null;
-  }
-  const transporter = nodemailer.createTransport({
+  return nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 465,
     secure: true,
     auth: { user, pass },
-    connectionTimeout: 10000, // 10s
-    greetingTimeout: 5000,    // 5s
+    connectionTimeout: 10000,
   });
-  return transporter;
 };
 
 const sendEmailNotification = async ({ name, email, message }) => {
@@ -35,8 +31,9 @@ const sendEmailNotification = async ({ name, email, message }) => {
     console.log('📧 Email not configured properly — skipping notification. Check your Render Environment Variables!');
     return;
   }
+  
   const to = process.env.EMAIL_TO || process.env.EMAIL_USER;
-  console.log(`📤 Attempting to send email from ${process.env.EMAIL_USER} to ${to}...`);
+  console.log(`📤 Sending message from ${name} (${email}) to ${to}...`);
 
   // Beautiful HTML email
   const html = `
