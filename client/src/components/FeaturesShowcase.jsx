@@ -126,7 +126,7 @@ const FeaturesShowcase = ({ isOpen, onClose }) => {
             </motion.div>
 
             <div className="showcase-footer">
-              <p>Designed and Built by <strong>Kumari Kriti Singh</strong></p>
+              <p>Designed and Built by <strong>Agam Jindal</strong></p>
               <div className="tech-dots">
                 <span className="dot" title="React" style={{ background: '#61DAFB' }} />
                 <span className="dot" title="Node.js" style={{ background: '#339933' }} />

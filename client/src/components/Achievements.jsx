@@ -105,7 +105,7 @@ const Achievements = () => {
         }
         .ach-card-wrapper {
           display: block;
-          height: 320px;
+          min-height: 340px;
         }
         .ach-card-static {
           position: relative;
@@ -123,8 +123,7 @@ const Achievements = () => {
           box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
         .ach-card-content {
-          height: 100%;
-          padding: 2.5rem 1.5rem;
+          padding: 2.5rem 1.5rem 3rem;
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -153,7 +152,7 @@ const Achievements = () => {
         }
 
         @media (max-width: 600px) {
-          .ach-card-wrapper { height: 300px; }
+          .ach-card-wrapper { min-height: 300px; height: auto; }
           .ach-icon { width: 70px; height: 70px; font-size: 2.2rem; }
           .ach-title { font-size: 1.1rem; }
         }

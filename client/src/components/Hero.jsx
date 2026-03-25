@@ -172,12 +172,12 @@ const Hero = () => {
 
             <div className="profile-img-wrap">
               <img
-                src="/kriti.jpg"
-                alt="Kumari Kriti Singh"
+                src="/agam.jpg"
+                alt="Agam Jindal"
                 className="profile-img"
                 onError={e => {
                   e.target.onerror = null;
-                  e.target.src = `https://ui-avatars.com/api/?name=Kumari+Kriti+Singh&background=7c3aed&color=fff&size=200&bold=true`;
+                  e.target.src = `https://ui-avatars.com/api/?name=Agam+Jindal&background=7c3aed&color=fff&size=200&bold=true`;
                 }}
               />
               <div className="profile-ring" />
@@ -214,8 +214,8 @@ const Hero = () => {
                 👁️ View CV
               </button>
               <a
-                href="/CV.docx"
-                download="Kriti_Singh_CV.docx"
+                href="/Agam_Jindal_CV.docx"
+                download="Agam_Jindal_CV.docx"
                 className="cv-btn cv-download"
               >
                 ⬇️ Download CV
@@ -248,8 +248,8 @@ const Hero = () => {
                 <div>
                   <h2 className="cv-name">{personalInfo.name}</h2>
                   <div className="cv-contacts">
-                    <a href={personalInfo.linkedin} target="_blank" rel="noreferrer">🔗 linkedin/kritisingh7488</a>
-                    <a href={personalInfo.github} target="_blank" rel="noreferrer">🐱 github.com/kritisingh7488</a>
+                  <a href={personalInfo.linkedin} target="_blank" rel="noreferrer">🔗 linkedin.com/in/agam-jindal-379352298/</a>
+                  <a href={personalInfo.github} target="_blank" rel="noreferrer">🐱 github.com/Agam3705</a>
                     <a href={`mailto:${personalInfo.email}`}>📧 {personalInfo.email}</a>
                     <span>📞 {personalInfo.phone}</span>
                   </div>
@@ -262,63 +262,44 @@ const Hero = () => {
                 {/* Skills */}
                 <section className="cv-section">
                   <h3 className="cv-section-title">⚡ Skills</h3>
-                  {[
-                    { cat: 'Languages', val: 'C/C++, JavaScript, PHP, Java' },
-                    { cat: 'Frameworks', val: 'HTML and CSS, Tailwind CSS, NodeJS, ReactJS' },
-                    { cat: 'Tools/Platforms', val: 'MySQL, Git, GitHub' },
-                    { cat: 'Core CS Fundamentals', val: 'DSA, OOPs, OS' },
-                    { cat: 'Soft Skills', val: 'Problem-Solving, Team Work, Leadership, Adaptability' },
-                  ].map(({ cat, val }) => (
+                  {['Languages', 'Frameworks', 'Tools', 'Core CS Fundamentals'].map(cat => (
                     <div key={cat} className="cv-skill-group">
-                      <span className="cv-skill-cat">{cat}:</span>{val}
+                      <span className="cv-skill-cat">{cat}:</span>
+                      {skills.filter(s => s.category === cat).map(s => s.name).join(', ') || (cat === 'Core CS Fundamentals' ? 'DSA, OOPs, OS' : 'N/A')}
                     </div>
                   ))}
+                  <div className="cv-skill-group">
+                    <span className="cv-skill-cat">Soft Skills:</span>Public Speaking, Leadership, Adaptability, Analytical Thinking
+                  </div>
                 </section>
 
                 {/* Projects */}
                 <section className="cv-section">
                   <h3 className="cv-section-title">💻 Projects</h3>
-
-                  <div className="cv-entry">
-                    <div className="cv-entry-header">
-                      <strong>🎨 Paint Application &nbsp;<a href={PROJECT_LINKS[1]} target="_blank" rel="noreferrer" className="cv-link">GitHub ↗</a></strong>
-                      <span className="cv-date">Jun'25 – Jul'25</span>
-                    </div>
-                    <ul className="cv-bullets">
-                      <li>Developed a desktop-based paint tool using Java and Swing with smooth and responsive drawing capabilities.</li>
-                      <li>Added essential features like pencil, shapes, color picker, fill, and eraser to support flexible digital drawing.</li>
-                      <li>Designed a user-friendly interface that allows easy creation, editing, and clearing of artwork.</li>
-                      <li>Included adjustable brush-size controls and simplified user interactions to improve overall usability.</li>
-                    </ul>
-                    <div className="cv-tech">Tech stack: Java, Swing, GUI Development, Desktop Application</div>
+                  
+                  <div className="cv-project-cat-group">
+                    <h4 className="cv-project-subcat">🌐 Web Applications</h4>
+                    {projects.filter(p => p.type === 'Web').map(p => (
+                      <div key={p.id} className="cv-entry">
+                        <div className="cv-entry-header">
+                          <strong>{p.icon} {p.title} &nbsp;
+                            <a href={p.github} target="_blank" rel="noreferrer" className="cv-link">GitHub ↗</a>
+                            {p.live && <>&nbsp; <a href={p.live} target="_blank" rel="noreferrer" className="cv-link" style={{color: 'var(--neon-green)'}}>Live Demo ↗</a></>}
+                          </strong>
+                          <span className="cv-date">{p.period}</span>
+                        </div>
+                        <div className="cv-entry-sub">{p.subtitle}</div>
+                        <p className="cv-entry-desc" style={{ fontSize: '0.8rem', marginTop: '0.2rem' }}>{p.description}</p>
+                        <div className="cv-tech">Tech stack: {p.techStack.join(', ')}</div>
+                      </div>
+                    ))}
                   </div>
 
-                  <div className="cv-entry">
-                    <div className="cv-entry-header">
-                      <strong>📚 Knowledge Management Portal &nbsp;<a href={PROJECT_LINKS[2]} target="_blank" rel="noreferrer" className="cv-link">GitHub ↗</a></strong>
-                      <span className="cv-date">Jan'25 – Apr'25</span>
+                  <div className="cv-project-cat-group" style={{ marginTop: '1rem' }}>
+                    <h4 className="cv-project-subcat">🖥️ Desktop Applications</h4>
+                    <div className="cv-entry-desc" style={{ fontStyle: 'italic', opacity: 0.7, fontSize: '0.8rem' }}>
+                      "Exploring the local machine realm... transition from web to desktop in progress! 🚀"
                     </div>
-                    <ul className="cv-bullets">
-                      <li>Built a structured knowledge portal with a clean and organized interface using HTML and Tailwind CSS.</li>
-                      <li>Implemented backend functionality using PHP and Node.js to handle requests and process data efficiently.</li>
-                      <li>Used MySQL for reliable data storage to ensure smooth management of information.</li>
-                      <li>Integrated JavaScript and jQuery to deliver dynamic interactions and improved content navigation.</li>
-                    </ul>
-                    <div className="cv-tech">Tech stack: HTML, Tailwind CSS, PHP, Node.js, jQuery, MySQL</div>
-                  </div>
-
-                  <div className="cv-entry">
-                    <div className="cv-entry-header">
-                      <strong>⚡ Energy Efficient CPU Scheduling Algorithm &nbsp;<a href={PROJECT_LINKS[3]} target="_blank" rel="noreferrer" className="cv-link">GitHub ↗</a></strong>
-                      <span className="cv-date">Jan'25 – Mar'25</span>
-                    </div>
-                    <ul className="cv-bullets">
-                      <li>Created a web tool to simulate CPU scheduling algorithms with an energy-efficient approach.</li>
-                      <li>Enabled users to test multiple algorithms and observe their performance in real time.</li>
-                      <li>Added clear visual elements like Gantt charts to simplify understanding of scheduling behavior.</li>
-                      <li>Crafted the scheduling engine and UI using JavaScript and PHP for accurate simulations.</li>
-                    </ul>
-                    <div className="cv-tech">Tech stack: HTML, Tailwind CSS, JavaScript, PHP, Web Application Simulation</div>
                   </div>
                 </section>
 
@@ -327,14 +308,9 @@ const Hero = () => {
                 {/* Certificates */}
                 <section className="cv-section">
                   <h3 className="cv-section-title">🏅 Certificates</h3>
-                  {[
-                    { id: 3, name: 'Cloud Computing', org: 'NPTEL', date: "Apr'25" },
-                    { id: 4, name: 'Computer Communications', org: 'Coursera', date: "Nov'24" },
-                    { id: 5, name: 'Social Entrepreneurship', org: 'Sanjivani Shakti Sewa Samiti', date: "Jul'24" },
-                    { id: 6, name: 'Data Structures Training', org: 'LPU Training', date: "Jul'25" },
-                  ].map((c, i) => (
+                  {achievements.filter(a => a.type === 'certification' || a.type === 'training').map((c, i) => (
                     <div key={i} className="cv-entry cv-entry-compact">
-                      <span>📜 <strong>{c.name}</strong> · <a href={CERTIFICATE_LINKS[c.id]?.url || '#'} target="_blank" rel="noreferrer" className="cv-link">{c.org} ↗</a></span>
+                      <span>{c.icon} <strong>{c.title}</strong> · <a href={CERTIFICATE_LINKS[c.id]?.url || '#'} target="_blank" rel="noreferrer" className="cv-link">{c.description.split('—')[1]?.trim() || c.description} ↗</a></span>
                       <span className="cv-date">{c.date}</span>
                     </div>
                   ))}
@@ -343,33 +319,28 @@ const Hero = () => {
                 {/* Achievements */}
                 <section className="cv-section">
                   <h3 className="cv-section-title">🏆 Achievements</h3>
-                  <div className="cv-entry cv-entry-compact">
-                    <span>⭐ Earned a <strong>5-star C++ rating</strong> on <a href={CERTIFICATE_LINKS[1]?.url || "https://hackerrank.com"} target="_blank" rel="noreferrer" className="cv-link">HackerRank ↗</a> for strong problem-solving performance.</span>
-                    <span className="cv-date">Oct'25</span>
-                  </div>
-                  <div className="cv-entry cv-entry-compact">
-                    <span>🏆 Secured <strong>2nd position</strong> among 100+ participants in the <a href={CERTIFICATE_LINKS[2]?.url || "#"} target="_blank" rel="noreferrer" className="cv-link">Achievers Hunt ↗</a> competition at LPU.</span>
-                    <span className="cv-date">May'24</span>
-                  </div>
+                  {achievements.filter(a => a.type === 'leadership' || a.type === 'competition').map((a, i) => (
+                    <div key={i} className="cv-entry cv-entry-compact">
+                      <span>{a.icon} <strong>{a.title}</strong>: {a.description}</span>
+                      <span className="cv-date">{a.date}</span>
+                    </div>
+                  ))}
                 </section>
 
                 {/* Education */}
                 <section className="cv-section">
                   <h3 className="cv-section-title">🎓 Education</h3>
-                  {[
-                    { inst: 'Lovely Professional University', loc: 'Phagwara, Punjab', degree: 'B.Tech – Computer Science and Engineering; CGPA: 7.68', period: "Aug'23 – Present" },
-                    { inst: 'Saraswati Shishu Vidya Mandir', loc: 'Dhurwa, Ranchi', degree: 'Intermediate; Percentage: 89%', period: "Apr'21 – Jun'22" },
-                    { inst: 'Saraswati Shishu Vidya Mandir', loc: 'Dhurwa, Ranchi', degree: 'Matriculation; Percentage: 85%', period: "Apr'19 – Jun'20" },
-                  ].map((e, i) => (
+                  {timeline.filter(item => item.type === 'education').map((e, i) => (
                     <div key={i} className="cv-entry">
                       <div className="cv-entry-header">
-                        <strong>{e.inst}</strong>
-                        <span className="cv-date">{e.loc}</span>
+                        <strong>{e.subtitle.split(',')[0]}</strong>
+                        <span className="cv-date">{e.subtitle.includes(',') ? e.subtitle.split(',').slice(1).join(',') : ''}</span>
                       </div>
                       <div className="cv-entry-header" style={{ marginTop: '0.1rem' }}>
-                        <span className="cv-entry-sub" style={{ margin: 0 }}>{e.degree}</span>
-                        <span className="cv-date">{e.period}</span>
+                        <span className="cv-entry-sub" style={{ margin: 0 }}>{e.title}</span>
+                        <span className="cv-date">{e.year}</span>
                       </div>
+                      <div className="cv-entry-desc" style={{ fontSize: '0.78rem', marginTop: '0.2rem' }}>{e.description}</div>
                     </div>
                   ))}
                 </section>
@@ -377,7 +348,7 @@ const Hero = () => {
               </div>
 
               <div className="cv-footer">
-                <a href="/CV.docx" download="Kriti_Singh_CV.docx" className="cv-btn cv-download">
+                <a href="/Agam_Jindal_CV.docx" download="Agam_Jindal_CV.docx" className="cv-btn cv-download">
                   ⬇️ Download CV
                 </a>
               </div>
@@ -600,6 +571,7 @@ const Hero = () => {
         .cv-entry-compact {
           display: flex; justify-content: space-between; align-items: baseline;
           flex-wrap: wrap; gap: 0.2rem; font-size: 0.82rem;
+          margin-bottom: 1.2rem;
         }
         .cv-entry-header {
           display: flex; justify-content: space-between; align-items: baseline;
@@ -624,6 +596,10 @@ const Hero = () => {
           color: var(--neon-cyan); text-decoration: none; font-size: 0.78rem;
         }
         .cv-link:hover { text-decoration: underline; }
+        .cv-project-subcat {
+          font-size: 0.75rem; font-weight: 700; color: var(--text-muted);
+          margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;
+        }
         .cv-footer {
           padding: 1rem 2rem; border-top: 1px solid var(--border);
           display: flex; justify-content: flex-end;

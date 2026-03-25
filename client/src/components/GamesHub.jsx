@@ -107,7 +107,7 @@ const GamesHub = ({ onClose }) => {
             >
               <div className="hub-header">
                 <span className="hub-badge">🕹️ ARCADE</span>
-                <h2>Kriti's Game Arcade</h2>
+                <h2>Agam's Game Arcade</h2>
                 <p>Pick a game and have fun!</p>
               </div>
               <div className="hub-grid">

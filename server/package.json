@@ -1,7 +1,7 @@
 {
-  "name": "kriti-portfolio-server",
+  "name": "agam-portfolio-server",
   "version": "1.0.0",
-  "description": "Backend for Kriti Singh's gamified portfolio",
+  "description": "Backend for agam jindal's gamified portfolio",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",

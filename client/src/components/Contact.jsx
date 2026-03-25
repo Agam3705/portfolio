@@ -4,7 +4,8 @@ import axios from 'axios';
 import { FiSend, FiMail, FiGithub, FiLinkedin, FiPhone } from 'react-icons/fi';
 import { personalInfo } from '../utils/data';
 
-const API_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api/contact';
+const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
+const API_URL = `${API_BASE.replace(/\/$/, '')}/api/contact`;
 
 const Contact = () => {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
@@ -30,8 +31,8 @@ const Contact = () => {
 
   const contactLinks = [
     { icon: <FiMail />, label: 'Email', value: personalInfo.email, href: `mailto:${personalInfo.email}`, external: false },
-    { icon: <FiGithub />, label: 'GitHub', value: 'kritisingh7488', href: personalInfo.github, external: true },
-    { icon: <FiLinkedin />, label: 'LinkedIn', value: 'kritisingh7488', href: personalInfo.linkedin, external: true },
+    { icon: <FiGithub />, label: 'GitHub', value: 'Agam3705', href: personalInfo.github, external: true },
+    { icon: <FiLinkedin />, label: 'LinkedIn', value: 'agam-jindal-379352298', href: personalInfo.linkedin, external: true },
     { icon: <FiPhone />, label: 'Phone', value: personalInfo.phone, href: `tel:${personalInfo.phone}`, external: false },
   ];
 
@@ -152,7 +153,7 @@ const Contact = () => {
               </button>
               {status === 'error' && (
                 <a
-                  href={`mailto:${personalInfo.email}?subject=Hello Kriti!`}
+                  href={`mailto:${personalInfo.email}?subject=Hello Agam!`}
                   className="btn-secondary submit-btn"
                   style={{ textAlign: 'center', justifyContent: 'center', marginTop: '0.25rem' }}
                 >
@@ -172,7 +173,7 @@ const Contact = () => {
           transition={{ delay: 0.3 }}
         >
           <div className="glow-divider" />
-          <p>Built with ❤️ using <span className="neon-text-purple">MongoDB</span> · <span className="neon-text-cyan">Express</span> · <span className="neon-text-green">React</span> · <span className="neon-text-purple">Node.js</span> — by Kumari Kriti Singh © 2025</p>
+          <p>Built with ❤️ using <span className="neon-text-purple">MongoDB</span> · <span className="neon-text-cyan">Express</span> · <span className="neon-text-green">React</span> · <span className="neon-text-purple">Node.js</span> — by Agam Jindal © 2026</p>
         </motion.div>
       </div>
 

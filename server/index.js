@@ -9,7 +9,13 @@ const app = express();
 // Middleware
 app.use(helmet());
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:5174', 'http://localhost:3000'],
+  origin: [
+    'http://localhost:5173', 
+    'http://localhost:5174', 
+    'http://localhost:3000', 
+    'https://agamjindal.vercel.app',
+    /\.vercel\.app$/ // Matches all Vercel preview/production links
+  ],
   credentials: true
 }));
 app.use(express.json());
@@ -32,7 +38,7 @@ app.use('/api/stats', require('./routes/stats'));
 
 // Health check
 app.get('/', (req, res) => {
-  res.json({ message: '🎮 Kriti Portfolio API is live!' });
+  res.json({ message: '🎮 agam Portfolio API is live!' });
 });
 
 const PORT = process.env.PORT || 5000;

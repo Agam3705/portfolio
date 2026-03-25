@@ -80,7 +80,7 @@ const sendEmailNotification = async ({ name, email, message }) => {
           </div>
         </div>
         <div class="footer">
-          Sent via Kriti.dev portfolio • ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })} IST
+          Sent via agam.dev portfolio • ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })} IST
         </div>
       </div>
     </body>
@@ -88,10 +88,10 @@ const sendEmailNotification = async ({ name, email, message }) => {
   `;
 
   await transporter.sendMail({
-    from: `"Kriti Portfolio 🎮" <${process.env.EMAIL_USER}>`,
+    from: `"agam Portfolio 🎮" <${process.env.EMAIL_USER}>`,
     to,
     replyTo: email,
-    subject: `📬 New message from ${name} — Kriti.dev`,
+    subject: `📬 New message from ${name} — agam.dev`,
     html,
   });
   console.log(`✅ Email notification sent to ${to}`);

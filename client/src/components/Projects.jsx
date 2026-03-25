@@ -43,76 +43,93 @@ const Projects = () => {
         </motion.div>
 
         <div className="projects-grid">
-          {filtered.map((project, i) => {
-            const projectLink = PROJECT_LINKS[project.id];
-            return (
-              <motion.div
-                key={project.id}
-                className="project-flip-wrap"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-              >
-                <div
-                  className={`project-flipper ${flipped[project.id] ? 'is-flipped' : ''}`}
-                  onClick={() => toggleFlip(project.id)}
+          {filtered.length > 0 ? (
+            filtered.map((project, i) => {
+              const projectLink = PROJECT_LINKS[project.id];
+              return (
+                <motion.div
+                  key={project.id}
+                  className="project-flip-wrap"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
                 >
-                  {/* FRONT */}
-                  <div className="project-front project-face">
-                    <div className="proj-header">
-                      <div className="proj-icon" style={{ background: `${project.color}28`, color: project.color }}>
-                        {project.icon}
+                  <div
+                    className={`project-flipper ${flipped[project.id] ? 'is-flipped' : ''}`}
+                    onClick={() => toggleFlip(project.id)}
+                  >
+                    {/* FRONT */}
+                    <div className="project-front project-face">
+                      <div className="proj-header">
+                        <div className="proj-icon" style={{ background: `${project.color}28`, color: project.color }}>
+                          {project.icon}
+                        </div>
+                        <div className="proj-difficulty">
+                          <span
+                            className="tag"
+                            style={{
+                              borderColor: difficultyColor[project.difficulty] + '88',
+                              color: difficultyColor[project.difficulty],
+                              background: difficultyColor[project.difficulty] + '18'
+                            }}
+                          >
+                            {project.difficulty}
+                          </span>
+                        </div>
                       </div>
-                      <div className="proj-difficulty">
-                        <span
-                          className="tag"
-                          style={{
-                            borderColor: difficultyColor[project.difficulty] + '88',
-                            color: difficultyColor[project.difficulty],
-                            background: difficultyColor[project.difficulty] + '18'
-                          }}
-                        >
-                          {project.difficulty}
-                        </span>
+                      <h3 className="proj-title">{project.title}</h3>
+                      <p className="proj-subtitle neon-text-cyan">{project.subtitle}</p>
+                      <p className="proj-desc">{project.description}</p>
+                      <div className="proj-footer">
+                        <span className="proj-period">{project.period}</span>
+                        <span className="proj-xp" style={{ color: project.color }}>+{project.xpReward} XP</span>
                       </div>
+                      <div className="flip-hint">Details & Tech Stack →</div>
                     </div>
-                    <h3 className="proj-title">{project.title}</h3>
-                    <p className="proj-subtitle neon-text-cyan">{project.subtitle}</p>
-                    <p className="proj-desc">{project.description}</p>
-                    <div className="proj-footer">
-                      <span className="proj-period">{project.period}</span>
-                      <span className="proj-xp" style={{ color: project.color }}>+{project.xpReward} XP</span>
-                    </div>
-                    <div className="flip-hint">Details & Tech Stack →</div>
-                  </div>
 
-                  {/* BACK */}
-                  <div className="project-back project-face">
-                    <h3 className="proj-title">{project.title}</h3>
-                    <p className="proj-subtitle" style={{ color: project.color }}>CORE_ARCHITECTURE</p>
-                    <div className="tech-tags">
-                      {project.techStack.map(tech => (
-                        <span
-                          key={tech}
-                          className="tag"
-                          style={{ borderColor: project.color + '88', color: project.color, background: project.color + '15' }}
-                        >
-                          {tech}
-                        </span>
-                      ))}
+                    {/* BACK */}
+                    <div className="project-back project-face">
+                      <h3 className="proj-title">{project.title}</h3>
+                      <p className="proj-subtitle" style={{ color: project.color }}>CORE_ARCHITECTURE</p>
+                      <div className="tech-tags">
+                        {project.techStack.map(tech => (
+                          <span
+                            key={tech}
+                            className="tag"
+                            style={{ borderColor: project.color + '88', color: project.color, background: project.color + '15' }}
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                      <div className="proj-links" style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }} onClick={(e) => e.stopPropagation()}>
+                        <a href={projectLink || project.github} target="_blank" rel="noreferrer" className="proj-link">
+                          <FiGithub /> SOURCE_CODE
+                        </a>
+                        {project.live && (
+                          <a href={project.live} target="_blank" rel="noreferrer" className="proj-link" style={{ borderColor: 'var(--neon-green)', color: 'var(--neon-green)' }}>
+                            <FiExternalLink /> LIVE_DEMO
+                          </a>
+                        )}
+                      </div>
+                      <div className="flip-hint">← BACK_TO_INTEL</div>
                     </div>
-                    <div className="proj-links" onClick={(e) => e.stopPropagation()}>
-                      <a href={projectLink || project.github} target="_blank" rel="noreferrer" className="proj-link">
-                        <FiGithub /> SOURCE_CODE
-                      </a>
-                    </div>
-                    <div className="flip-hint">← BACK_TO_INTEL</div>
                   </div>
-                </div>
-              </motion.div>
-            );
-          })}
+                </motion.div>
+              );
+            })
+          ) : (
+            <motion.div 
+              className="empty-projects-message"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '3rem', background: 'rgba(255,255,255,0.02)', borderRadius: '20px', border: '1px dashed var(--border)' }}
+            >
+              <h3 style={{ color: 'var(--neon-purple)', marginBottom: '0.5rem' }}>"Exploring the local machine realm..."</h3>
+              <p style={{ color: 'var(--text-secondary)', fontStyle: 'italic' }}>Transition from web to {filter} in progress! 🚀</p>
+            </motion.div>
+          )}
         </div>
       </div>
 

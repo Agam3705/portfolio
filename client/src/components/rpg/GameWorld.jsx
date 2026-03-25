@@ -609,7 +609,7 @@ const GameWorld = ({ onBackToMenu, variant = 'maze' }) => {
       <div className="game-hud">
         <div className="hud-topline">
           <div className="hud-left-panel">
-            <div className="hud-logo">Kriti<span>.dev</span> <span className="rpg-tag">CYBER MAZE</span></div>
+            <div className="hud-logo">Agam<span>.dev</span> <span className="rpg-tag">CYBER MAZE</span></div>
             <button className="btn-exit" onClick={onBackToMenu}>← EXIT TO PORTAL</button>
           </div>
           <div className="hud-hint">WASD Move · SPACE Shoot · ENTER Interact</div>

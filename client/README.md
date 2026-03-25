@@ -1,4 +1,4 @@
-# Kriti's Gamified Portfolio 🎮
+# Agam's Gamified Portfolio 🎮
 
 Welcome to my professional multiverse. This project is a high-impact, full-stack portfolio that combines traditional resume elements with an immersive arcade experience.
 
@@ -46,4 +46,4 @@ EMAIL_APP_PASS=your_gmail_app_password
 - **Deployment**: Vercel (Frontend), Render (Backend)
 
 ---
-Designed and Built by **Kumari Kriti Singh**.
+Designed and Built by **Agam Jindal**.

@@ -100,7 +100,7 @@ const Skills = () => {
         >
           <h3 className="soft-title">Soft Skills <span className="neon-text-purple">// passive_abilities</span></h3>
           <div className="soft-tags">
-            {['Problem-Solving', 'Team Work', 'Leadership', 'Adaptability'].map(s => (
+            {['Public Speaking', 'Leadership', 'Adaptability', 'Analytical Thinking'].map(s => (
               <span key={s} className="soft-tag">{s}</span>
             ))}
           </div>

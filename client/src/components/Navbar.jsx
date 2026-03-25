@@ -34,7 +34,7 @@ const Navbar = ({ xp, onPlayClick, onBackToMenu }) => {
         {/* Logo */}
         <div className="nav-logo">
           <span className="logo-badge">LVL {personalInfo.level}</span>
-          <span className="logo-name">Kriti<span className="neon-text-cyan">.dev</span></span>
+          <span className="logo-name">Agam<span className="neon-text-cyan">.dev</span></span>
         </div>
 
         {/* Desktop Links */}

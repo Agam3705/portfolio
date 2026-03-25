@@ -8,7 +8,7 @@ import { FiInfo } from 'react-icons/fi';
 import './index.css';
 
 const BOOT_LOGS = [
-  'Initializing KritiOS v2.4.1...',
+  'Initializing AgamOS v2.4.1...',
   'Loading neural interface modules...',
   'Mounting portfolio filesystem...',
   'Detecting experience modules... [3 found]',
@@ -62,7 +62,7 @@ function BootScreen() {
       <div className="boot-center">
         {/* Logo */}
         <div className={`boot-logo ${glitch ? 'boot-glitch' : ''}`}>
-          KRITI<span>.dev</span>
+          AGAM<span>.dev</span>
         </div>
         <div className="boot-subtitle">PORTFOLIO OPERATING SYSTEM</div>
 

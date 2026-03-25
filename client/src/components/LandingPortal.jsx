@@ -106,7 +106,7 @@ const LandingPortal = ({ onSelectMode }) => {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ type: 'spring', stiffness: 200, damping: 12, delay: 0.3 }}
           >
-            <span className="brand-name">KRITI</span><span className="brand-dot">.dev</span>
+            <span className="brand-name">AGAM</span><span className="brand-dot">.dev</span>
           </motion.div>
 
           <div className="portal-tag-line">
