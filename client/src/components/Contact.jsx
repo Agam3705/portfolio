@@ -17,7 +17,7 @@ const Contact = () => {
     e.preventDefault();
     setStatus('loading');
     try {
-      await axios.post(API_URL, form, { timeout: 6000 });
+      await axios.post(API_URL, form, { timeout: 15000 }); // 15s for cloud cold starts
       setStatus('success');
       setForm({ name: '', email: '', message: '' });
       setTimeout(() => setStatus('idle'), 5000);

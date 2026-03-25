@@ -16,7 +16,8 @@ Render will host your Node.js API and handle contact form submissions.
 ### 2. Configure Service Settings
 - **Name**: `portfolio-backend` (or your choice).
 - **Root Directory**: `server`
-  - *CRITICAL: This ensures Render only looks at the backend code.*
+  - > [!IMPORTANT]
+  - > **ROOT DIRECTORY MUST BE SET TO `server`**. This is why your build failed. Render is searching for `package.json` in the root, but it is located inside the `server/` folder.
 - **Runtime**: Node
 - **Build Command**: `npm install`
 - **Start Command**: `npm start`

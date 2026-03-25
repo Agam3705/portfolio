@@ -18,10 +18,15 @@ const getTransporter = () => {
     console.warn('⚠️  EMAIL_APP_PASS is not defined or is default placeholder.');
     return null;
   }
-  return nodemailer.createTransport({
-    service: 'gmail',
+  const transporter = nodemailer.createTransport({
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
     auth: { user, pass },
+    connectionTimeout: 10000, // 10s
+    greetingTimeout: 5000,    // 5s
   });
+  return transporter;
 };
 
 const sendEmailNotification = async ({ name, email, message }) => {
@@ -107,6 +112,7 @@ const sendEmailNotification = async ({ name, email, message }) => {
 
 // POST /api/contact
 router.post('/', async (req, res) => {
+  console.log('📬 NEW_REQUEST: /api/contact reached.');
   const { name, email, message } = req.body;
 
   if (!name || !email || !message) {
