@@ -10,7 +10,14 @@ const inbox = [];
 const getTransporter = () => {
   const user = process.env.EMAIL_USER;
   const pass = process.env.EMAIL_APP_PASS;
-  if (!user || !pass || pass === 'your_gmail_app_password_here') return null;
+  if (!user) {
+    console.warn('⚠️  EMAIL_USER is not defined in env.');
+    return null;
+  }
+  if (!pass || pass === 'your_gmail_app_password_here') {
+    console.warn('⚠️  EMAIL_APP_PASS is not defined or is default placeholder.');
+    return null;
+  }
   return nodemailer.createTransport({
     service: 'gmail',
     auth: { user, pass },
@@ -20,10 +27,11 @@ const getTransporter = () => {
 const sendEmailNotification = async ({ name, email, message }) => {
   const transporter = getTransporter();
   if (!transporter) {
-    console.log('📧 Email not configured — skipping notification.');
+    console.log('📧 Email not configured properly — skipping notification. Check your Render Environment Variables!');
     return;
   }
   const to = process.env.EMAIL_TO || process.env.EMAIL_USER;
+  console.log(`📤 Attempting to send email from ${process.env.EMAIL_USER} to ${to}...`);
 
   // Beautiful HTML email
   const html = `
