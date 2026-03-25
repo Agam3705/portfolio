@@ -7,17 +7,12 @@ require('dotenv').config();
 const app = express();
 
 // Middleware
-app.use(helmet());
-app.use(cors({
-  origin: [
-    'http://localhost:5173', 
-    'http://localhost:5174', 
-    'http://localhost:3000', 
-    'https://agamjindal.vercel.app',
-    /\.vercel\.app$/ // Matches all Vercel preview/production links
-  ],
-  credentials: true
-}));
+app.use((req, res, next) => {
+  console.log(`📡 [${req.method}] ${req.url} - Origin: ${req.get('origin')}`);
+  next();
+});
+
+app.use(cors()); // Temporarily allow all for debugging
 app.use(express.json());
 
 // MongoDB Connection
